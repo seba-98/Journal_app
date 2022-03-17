@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Switch } from 'react-router-dom';
 import JournalScreen from '../components/journal/JournalScreen';
 import AuthRouter from './AuthRouter';
@@ -20,7 +20,6 @@ const AppRoutes = () => {
   const dispatch=useDispatch();
   const auth = getAuth();
   const state=useSelector(state=>state);
-  const {active}=state.entries;
   const {uid} = state.auth;
 
 
@@ -42,7 +41,7 @@ const AppRoutes = () => {
   }, [auth, dispatch])
 
 
-  useEffect(() => dispatch(startGetNotes(uid)), [uid])
+  useEffect(() => dispatch(startGetNotes(uid)), [uid, dispatch])
    
 
 

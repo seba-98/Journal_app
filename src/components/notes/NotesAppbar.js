@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { startSaveImages, startSaveNotes, startNewNote, refreshNotes } from '../../REDUX- Management/actions/notes';
+import { startSaveImages, startSaveNotes, startNewNote} from '../../REDUX- Management/actions/notes';
 import moment from 'moment';
 
 const NotesAppbar = ({values}) => {
@@ -10,7 +10,7 @@ const NotesAppbar = ({values}) => {
   const {active} = useSelector(state=>state.entries);
   const time= moment(values.date);
 
-
+                                                            //creamos una nueva          ||      //actualizamos una
   const handleSendEntry=()=>  active.id === undefined  ?  dispatch(startNewNote(active))  :  dispatch( startSaveNotes(active))
   const handlePictureUpload=()=>document.querySelector('#fileSelector').click();
 
